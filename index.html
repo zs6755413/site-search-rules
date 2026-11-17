@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>不用搜索引擎的站内搜索 · demo</title>
+<style>
+  :root {
+    --bg: #ffffff;
+    --bg-soft: #f7f7f5;
+    --line: #e4e3df;
+    --text: #1f1f1d;
+    --text-2: #6b6a65;
+    --text-3: #9a998f;
+    --accent: #2f5fd0;
+    --accent-soft: #eef2fc;
+    --mark: #fff2c2;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--text);
+    font: 15px/1.65 -apple-system, "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif;
+  }
+  .wrap { max-width: 760px; margin: 0 auto; padding: 48px 20px 80px; }
+  header h1 { font-size: 22px; font-weight: 600; margin: 0 0 8px; letter-spacing: .2px; }
+  header p { margin: 0 0 4px; color: var(--text-2); font-size: 14px; }
+  header .meta { color: var(--text-3); font-size: 13px; margin-top: 10px; }
+
+  .searchbox { position: relative; margin: 28px 0 14px; }
+  .searchbox input {
+    width: 100%; padding: 13px 15px; font-size: 15px;
+    border: 1px solid var(--line); border-radius: 10px;
+    background: var(--bg); color: var(--text); outline: none;
+    transition: border-color .15s;
+  }
+  .searchbox input:focus { border-color: var(--accent); }
+  .searchbox input::placeholder { color: var(--text-3); }
+
+  .chips { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 24px; }
+  .chip {
+    padding: 5px 12px; font-size: 13px; border-radius: 999px;
+    border: 1px solid var(--line); background: var(--bg);
+    color: var(--text-2); cursor: pointer; user-select: none;
+    transition: all .15s;
+  }
+  .chip:hover { border-color: #c9c8c2; color: var(--text); }
+  .chip.on { background: var(--accent-soft); border-color: #c3d2f5; color: var(--accent); }
+
+  .vs-card {
+    border: 1px solid #c3d2f5; background: var(--accent-soft);
+    border-radius: 10px; padding: 14px 16px; margin-bottom: 26px;
+  }
+  .vs-card .vs-label { font-size: 12px; color: var(--accent); letter-spacing: .4px; margin-bottom: 4px; }
+  .vs-card .vs-title { font-size: 15px; font-weight: 600; }
+  .vs-card .vs-desc { font-size: 13px; color: var(--text-2); margin-top: 3px; }
+
+  .group { margin-bottom: 28px; }
+  .group-head {
+    display: flex; align-items: baseline; gap: 8px;
+    font-size: 13px; color: var(--text-2); margin-bottom: 10px;
+    padding-bottom: 8px; border-bottom: 1px solid var(--line);
+  }
+  .group-head .count { color: var(--text-3); font-size: 12px; }
+
+  .item { padding: 10px 0; border-bottom: 1px solid #f0efec; }
+  .item:last-child { border-bottom: none; }
+  .item-title { font-size: 15px; font-weight: 500; }
+  .item-desc { font-size: 13px; color: var(--text-2); margin-top: 3px; }
+  .item-extra { font-size: 12px; color: var(--text-3); margin-top: 5px; }
+  .item-score {
+    float: right; font-size: 11px; color: var(--text-3);
+    font-variant-numeric: tabular-nums; font-family: ui-monospace, monospace;
+  }
+  mark { background: var(--mark); color: inherit; padding: 0 1px; border-radius: 2px; }
+
+  .empty { padding: 22px 0; }
+  .empty-title { font-size: 15px; margin-bottom: 6px; }
+  .empty-note { font-size: 13px; color: var(--text-2); }
+  .empty-cats { margin-top: 14px; display: flex; gap: 8px; flex-wrap: wrap; }
+  .empty-cat {
+    font-size: 13px; padding: 5px 12px; border-radius: 999px;
+    background: var(--bg-soft); color: var(--text-2);
+  }
+
+  footer {
+    margin-top: 48px; padding-top: 18px; border-top: 1px solid var(--line);
+    font-size: 12px; color: var(--text-3); line-height: 1.8;
+  }
+  footer a { color: var(--text-2); }
+  .stat-line { font-size: 12px; color: var(--text-3); margin-top: 10px; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <h1>不用搜索引擎的站内搜索</h1>
+    <p>五类结果聚合 · 标签筛选 · 双工具对比直达，全部由规则实现。</p>
+    <p>没有倒排索引服务，没有向量，没有 embedding，只有一份 JSON 和一组打分规则。</p>
+    <div class="meta" id="meta">正在加载索引…</div>
+  </header>
+
+  <div class="searchbox">
+    <input id="q" type="search" placeholder="试试：豆包 ／ 豆包 vs deepseek ／ 免费额度 ／ 编程" autocomplete="off" spellcheck="false">
+  </div>
+
+  <div class="chips" id="chips">
+    <div class="chip" data-flag="free">有免费额度</div>
+    <div class="chip" data-flag="trial">可试用</div>
+    <div class="chip" data-flag="nologin">免登录</div>
+  </div>
+
+  <div id="out"></div>
+
+  <footer>
+    <div>这个 demo 的索引与打分逻辑在 <code>lib/search.js</code>，分词在 <code>lib/tokenize.js</code>，同一份代码既跑在浏览器里，也能用 <code>node bin/cli.js</code> 在命令行跑。</div>
+    <div>数据是虚构的演示条目，不含任何真实站点的收录内容。</div>
+    <div class="stat-line" id="stat-line"></div>
+  </footer>
+</div>
+
+<script src="lib/tokenize.js"></script>
+<script src="lib/search.js"></script>
+<script src="app.js"></script>
+</body>
+</html>

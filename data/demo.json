@@ -1,0 +1,56 @@
+{
+  "notice": "全部为演示用虚构数据，仅用于验证检索规则，不对应任何真实站点的收录内容。",
+  "categories": [
+    { "id": "c-chat", "name": "AI 对话", "words": ["对话", "聊天", "助手", "问答"] },
+    { "id": "c-draw", "name": "AI 绘画", "words": ["绘画", "出图", "图片", "设计"] },
+    { "id": "c-code", "name": "AI 编程", "words": ["编程", "代码", "开发", "补全"] },
+    { "id": "c-office", "name": "AI 办公", "words": ["办公", "文档", "表格", "写作"] },
+    { "id": "c-video", "name": "AI 视频", "words": ["视频", "剪辑", "生成"] },
+    { "id": "c-dev", "name": "开发工具", "words": ["开发", "调试", "接口", "格式化"] }
+  ],
+  "sites": [
+    { "id": "s1", "name": "豆包", "desc": "字节跳动的中文对话助手，网页与 App 数据互通。", "tags": ["对话", "中文"], "hot": 980, "flags": { "free": true, "trial": false, "nologin": false } },
+    { "id": "s2", "name": "DeepSeek", "desc": "开源权重的中文推理模型，支持长上下文与联网检索。", "tags": ["对话", "推理"], "hot": 950, "flags": { "free": true, "trial": false, "nologin": false } },
+    { "id": "s3", "name": "Kimi", "desc": "擅长长文档阅读与摘要的对话助手。", "tags": ["对话", "长文本"], "hot": 720, "flags": { "free": true, "trial": false, "nologin": true } },
+    { "id": "s4", "name": "通义千问", "desc": "阿里云推出的通用对话模型，提供开放接口。", "tags": ["对话", "接口"], "hot": 610, "flags": { "free": true, "trial": false, "nologin": false } },
+    { "id": "s5", "name": "即梦", "desc": "图片与短视频生成工具，支持中文提示词。", "tags": ["绘画", "视频"], "hot": 540, "flags": { "free": true, "trial": true, "nologin": false } },
+    { "id": "s6", "name": "可灵", "desc": "文生视频与图生视频，单次生成时长为数秒。", "tags": ["视频"], "hot": 480, "flags": { "free": false, "trial": true, "nologin": false } },
+    { "id": "s7", "name": "Suno", "desc": "根据描述生成歌曲与伴奏，支持中文歌词。", "tags": ["音频"], "hot": 300, "flags": { "free": true, "trial": true, "nologin": false } }
+  ],
+  "aiTools": [
+    { "id": "a1", "name": "豆包", "siteId": "s1", "desc": "中文对话助手，适合把 AI 当作日常第一入口。", "tags": ["对话", "中文"], "freeQuota": "每日免费对话额度", "price": "免费", "hot": 980, "flags": { "free": true, "trial": false, "nologin": false } },
+    { "id": "a2", "name": "DeepSeek", "siteId": "s2", "desc": "推理能力强的对话模型，擅长数学与代码。", "tags": ["对话", "推理", "代码"], "freeQuota": "网页端免费使用", "price": "免费 / 接口按量计费", "hot": 950, "flags": { "free": true, "trial": false, "nologin": false } },
+    { "id": "a3", "name": "Kimi", "siteId": "s3", "desc": "长文档阅读与摘要，支持上传多个文件。", "tags": ["对话", "长文本"], "freeQuota": "每日免费次数", "price": "免费", "hot": 720, "flags": { "free": true, "trial": false, "nologin": true } },
+    { "id": "a4", "name": "通义千问", "siteId": "s4", "desc": "通用对话模型，提供可调用的开放接口。", "tags": ["对话", "接口"], "freeQuota": "新用户试用额度", "price": "免费 / 接口按量计费", "hot": 610, "flags": { "free": true, "trial": false, "nologin": false } },
+    { "id": "a5", "name": "Midjourney", "desc": "图像生成工具，以风格表现见长。", "tags": ["绘画", "出图"], "freeQuota": "无免费额度", "price": "订阅制", "hot": 560, "flags": { "free": false, "trial": false, "nologin": false } },
+    { "id": "a6", "name": "即梦 AI", "siteId": "s5", "desc": "中文提示词的图片与短视频生成。", "tags": ["绘画", "视频"], "freeQuota": "每日免费积分", "price": "免费 / 会员制", "hot": 540, "flags": { "free": true, "trial": true, "nologin": false } },
+    { "id": "a7", "name": "Cursor", "desc": "面向代码编辑器的 AI 补全与重构工具。", "tags": ["编程", "代码", "补全"], "freeQuota": "每月免费请求数", "price": "免费 / 订阅制", "hot": 500, "flags": { "free": true, "trial": true, "nologin": false } },
+    { "id": "a8", "name": "GitHub Copilot", "desc": "编辑器内的代码补全与问答。", "tags": ["编程", "代码", "补全"], "freeQuota": "无免费额度", "price": "订阅制", "hot": 470, "flags": { "free": false, "trial": true, "nologin": false } },
+    { "id": "a9", "name": "Claude", "desc": "长上下文对话模型，擅长长文分析与写作。", "tags": ["对话", "写作", "长文本"], "freeQuota": "每日免费消息数", "price": "免费 / 订阅制", "hot": 640, "flags": { "free": true, "trial": false, "nologin": false } }
+  ],
+  "utils": [
+    { "id": "u1", "name": "JSON 格式化", "desc": "粘贴 JSON 后缩进、校验并定位语法错误。", "tags": ["开发", "格式化"], "hot": 430, "flags": { "free": true, "trial": false, "nologin": true } },
+    { "id": "u2", "name": "时间戳转换", "desc": "Unix 时间戳与本地时间互转，支持时区选择。", "tags": ["开发", "时间"], "hot": 380, "flags": { "free": true, "trial": false, "nologin": true } },
+    { "id": "u3", "name": "正则测试", "desc": "实时匹配、分组高亮与替换预览。", "tags": ["开发", "调试"], "hot": 350, "flags": { "free": true, "trial": false, "nologin": true } },
+    { "id": "u4", "name": "图片压缩", "desc": "批量压缩图片并保留元数据选项。", "tags": ["图片", "压缩"], "hot": 300, "flags": { "free": true, "trial": false, "nologin": true } },
+    { "id": "u5", "name": "二维码生成", "desc": "文本、网址生成二维码，可调纠错等级。", "tags": ["生成", "图片"], "hot": 260, "flags": { "free": true, "trial": false, "nologin": true } }
+  ],
+  "qa": [
+    { "id": "q1", "q": "DeepSeek 免费额度有多少？", "a": "网页端可直接使用，接口按调用量计费，具体额度以官方页面为准。", "tags": ["DeepSeek", "免费"], "hot": 420, "flags": { "free": true, "trial": false, "nologin": false } },
+    { "id": "q2", "q": "豆包和 DeepSeek 哪个更适合写代码？", "a": "两者都能处理代码，DeepSeek 在推理链路上更强，豆包在中文表达上更自然，建议按实际任务各试一轮。", "tags": ["豆包", "DeepSeek", "代码"], "hot": 390, "flags": { "free": true, "trial": false, "nologin": false } },
+    { "id": "q3", "q": "Midjourney 国内能用吗？", "a": "访问与支付都需要额外条件，部分国产工具提供相近的出图能力。", "tags": ["Midjourney", "绘画"], "hot": 330, "flags": { "free": false, "trial": false, "nologin": false } },
+    { "id": "q4", "q": "即梦的免费额度够用吗？", "a": "按每日积分发放，轻度使用一般能覆盖，批量出图会很快用尽。", "tags": ["即梦", "免费"], "hot": 280, "flags": { "free": true, "trial": false, "nologin": false } },
+    { "id": "q5", "q": "不用登录就能用的 AI 工具有哪些？", "a": "部分工具允许游客试用，可用次数有限，会话不会长期保存。", "tags": ["免费", "登录"], "hot": 250, "flags": { "free": true, "trial": false, "nologin": true } }
+  ],
+  "posts": [
+    { "id": "p1", "title": "站内搜索没有搜索引擎怎么排？我用了五个规则", "body": "没有向量检索、没有倒排索引服务，只有一份 JSON 和一堆规则。本文记录字段权重、覆盖率加成与降级建议的具体取值。", "tags": ["搜索", "规则"], "hot": 200, "flags": { "free": true, "trial": false, "nologin": false } },
+    { "id": "p2", "title": "双工具对比页：怎么判断用户在问 A 还是 A 对比 B", "body": "用户输入「豆包 vs deepseek」时，先分词再匹配实体，比先检索再猜测更稳。文中给出分隔符优先级与放弃判断的条件。", "tags": ["搜索", "对比"], "hot": 180, "flags": { "free": true, "trial": false, "nologin": false } },
+    { "id": "p3", "title": "中文分词不上词典，bigram 能撑多远", "body": "两字切分配合单字兜底，在小规模内容站上召回率足够，代价是噪声变多，需要用字段权重压回去。", "tags": ["搜索", "分词"], "hot": 160, "flags": { "free": true, "trial": false, "nologin": false } },
+    { "id": "p4", "title": "搜索无结果时，别只显示「没有找到」", "body": "无结果页给出相近分类和热门条目，能把一次失败检索转成一次有效浏览。", "tags": ["搜索", "降级"], "hot": 140, "flags": { "free": true, "trial": false, "nologin": false } }
+  ],
+  "vsPairs": [
+    { "left": "a1", "right": "a2", "title": "豆包 vs DeepSeek", "desc": "两者在免费额度、上下文长度、中文表现上的差异。" },
+    { "left": "a2", "right": "a9", "title": "DeepSeek vs Claude", "desc": "推理链路与长文写作两种取向的对比。" },
+    { "left": "a5", "right": "a6", "title": "Midjourney vs 即梦 AI", "desc": "出图风格、中文提示词支持与付费方式的差异。" }
+  ]
+}

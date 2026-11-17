@@ -1,0 +1,62 @@
+# 使用许可 / License
+
+版权所有 © 2026 Kan112。保留所有权利。
+Copyright © 2026 Kan112. All rights reserved.
+
+本仓库（site-search-rules）**不是开源项目**，而是「源码可见」（source-available）。
+代码公开是为了方便阅读、复核与学习，**不代表授予任何人自由使用的权利**。
+
+---
+
+## 一、无需授权即可做的事
+
+以下情形可以免费使用，无需事先联系作者：
+
+1. **阅读与学习**：阅读源码、复制片段用于理解原理。
+2. **个人非商业自用**：在自己的个人项目、学习环境、内部测试中使用或修改，
+   前提是不对外提供商业服务、不收取费用。
+3. **技术讨论与评测**：在文章、视频、课程中引用代码片段进行讲解或评测，
+   需注明来源并保留本许可文件中的版权声明。
+
+## 二、必须获得书面授权才能做的事
+
+以下情形须事先取得作者的书面许可（商业授权）：
+
+1. **任何商业用途**：包括但不限于在公司内部生产环境使用、用于对外收费的产品或服务、
+   用于承接客户项目、用于 SaaS / 托管服务。
+2. **再分发**：以任何形式重新发布本代码或其修改版本，包括打包进其他项目、镜像站、
+   代码合集、付费课程资料。
+3. **去除或修改版权声明**：删除本文件、或文件头注释中的版权信息。
+4. **以本代码为基础提供竞争性产品**。
+
+## 三、免责声明
+
+本软件按「现状」提供，不附带任何明示或暗示的担保，包括但不限于对适销性、
+特定用途适用性和非侵权性的担保。在任何情况下，作者均不对因使用本软件产生的
+任何索赔、损害或其他责任负责，无论该责任源于合同、侵权行为或其他原因。
+
+## 四、如何取得商业授权
+
+请通过以下方式联系，说明使用场景、使用范围与部署规模：
+
+- 站点联系页：https://www.kan112.com/contact.html
+
+商业授权按场景单独约定，可提供发票。未经授权即用于商业场景的，视为侵权。
+
+---
+
+## English Summary
+
+This repository is **source-available, not open source**. All rights reserved.
+
+**Permitted without permission**: reading the code; personal, non-commercial use;
+quoting snippets in technical articles or talks with attribution.
+
+**Requires written permission**: any commercial use (internal production use,
+paid products or services, client work, SaaS or hosting), redistribution in any
+form, removal of copyright notices, and building competing products on this code.
+
+Contact https://www.kan112.com/contact.html for commercial licensing.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND. The authors are
+not liable for any claim or damage arising from its use.

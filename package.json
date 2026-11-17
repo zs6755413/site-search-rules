@@ -1,0 +1,35 @@
+{
+  "name": "site-search-rules",
+  "version": "1.0.0",
+  "description": "Rule-based site search without Elasticsearch or Algolia: bigram tokenizing, weighted field scoring, vs-intent cards and fallback suggestions",
+  "main": "lib/search.js",
+  "bin": {
+    "site-search": "bin/cli.js"
+  },
+  "files": [
+    "lib",
+    "bin",
+    "data",
+    "index.html",
+    "app.js",
+    "README.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "start": "node server.js",
+    "check": "node bin/cli.js --check"
+  },
+  "engines": {
+    "node": ">=16"
+  },
+  "keywords": [
+    "search",
+    "site-search",
+    "bigram",
+    "chinese-tokenizer",
+    "ranking",
+    "zero-dependency"
+  ],
+  "license": "SEE LICENSE IN LICENSE",
+  "private": false
+}
